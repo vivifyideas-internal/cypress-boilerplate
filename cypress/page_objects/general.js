@@ -8,18 +8,14 @@ class General{
         cy.getElement(element).click() 
     } 
 
-    type(element, text, clearInput) {
+    type(selector, text, clearInput) {
         if(clearInput) {
-            this.clearInputField(element).type(text) 
+            cy.getElement(selector).clear().type(text) 
 
             return 
         }
-        cy.getElement(element).type(text)  
+        cy.getElement(selector).type(text)  
     } 
-
-    clearInputField(element) {
-        cy.get(element).clear() 
-    }
 
     checkClass(element, className, isClassPresent) {
         cy.getElement(element)
